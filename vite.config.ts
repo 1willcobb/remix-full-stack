@@ -3,8 +3,17 @@ import { installGlobals } from "@remix-run/node";
 import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
+import { vercelPreset } from '@vercel/remix/vite';
+
 installGlobals();
 
 export default defineConfig({
-  plugins: [remix(), tsconfigPaths()],
+  plugins: [remix({
+    presets: [vercelPreset()],
+  }), tsconfigPaths()],
+  build: {
+    rollupOptions: {
+      input: './app/root.jsx', // Update this to match your project structure
+    },
+  },
 });
