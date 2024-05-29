@@ -1,0 +1,131 @@
+{
+  "buildManifest": {
+    "serverBundles": {
+      "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0": {
+        "id": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
+        "file": "build/server/nodejs-eyJydW50aW1lIjoibm9kZWpzIn0/index.js",
+        "config": {
+          "runtime": "nodejs"
+        }
+      }
+    },
+    "routeIdToServerBundleId": {
+      "routes/projects": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/_index": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/email": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/1app": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0",
+      "routes/app": "nodejs-eyJydW50aW1lIjoibm9kZWpzIn0"
+    },
+    "routes": {
+      "root": {
+        "path": "",
+        "id": "root",
+        "file": "app/root.tsx",
+        "config": {}
+      },
+      "routes/projects": {
+        "file": "app/routes/projects.tsx",
+        "id": "routes/projects",
+        "path": "projects",
+        "parentId": "root",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/_index": {
+        "file": "app/routes/_index.tsx",
+        "id": "routes/_index",
+        "index": true,
+        "parentId": "root",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/email": {
+        "file": "app/routes/email.tsx",
+        "id": "routes/email",
+        "path": "email",
+        "parentId": "root",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/1app": {
+        "file": "app/routes/1app.tsx",
+        "id": "routes/1app",
+        "path": "1app",
+        "parentId": "root",
+        "config": {
+          "runtime": "nodejs"
+        }
+      },
+      "routes/app": {
+        "file": "app/routes/app.tsx",
+        "id": "routes/app",
+        "path": "app",
+        "parentId": "root",
+        "config": {
+          "runtime": "nodejs"
+        }
+      }
+    }
+  },
+  "remixConfig": {
+    "appDirectory": "/Users/1willcobb/Code/remix-vite-fullstack/app",
+    "basename": "/",
+    "buildDirectory": "/Users/1willcobb/Code/remix-vite-fullstack/build",
+    "future": {
+      "v3_fetcherPersist": false,
+      "v3_relativeSplatPath": false,
+      "v3_throwAbortReason": false,
+      "unstable_singleFetch": false
+    },
+    "manifest": false,
+    "publicPath": "/",
+    "routes": {
+      "root": {
+        "path": "",
+        "id": "root",
+        "file": "root.tsx"
+      },
+      "routes/projects": {
+        "file": "routes/projects.tsx",
+        "id": "routes/projects",
+        "path": "projects",
+        "parentId": "root"
+      },
+      "routes/_index": {
+        "file": "routes/_index.tsx",
+        "id": "routes/_index",
+        "index": true,
+        "parentId": "root"
+      },
+      "routes/email": {
+        "file": "routes/email.tsx",
+        "id": "routes/email",
+        "path": "email",
+        "parentId": "root"
+      },
+      "routes/1app": {
+        "file": "routes/1app.tsx",
+        "id": "routes/1app",
+        "path": "1app",
+        "parentId": "root"
+      },
+      "routes/app": {
+        "file": "routes/app.tsx",
+        "id": "routes/app",
+        "path": "app",
+        "parentId": "root"
+      }
+    },
+    "serverBuildFile": "index.js",
+    "serverModuleFormat": "esm",
+    "ssr": true
+  },
+  "viteConfig": {
+    "build": {
+      "assetsDir": "assets"
+    }
+  }
+}

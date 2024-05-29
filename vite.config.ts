@@ -13,7 +13,7 @@ export default defineConfig({
   }), tsconfigPaths()],
   build: {
     rollupOptions: {
-      input: './app/root.jsx', // Update this to match your project structure
+      input: './app/root.tsx', // Update this to match your project structure
     },
   },
 });
