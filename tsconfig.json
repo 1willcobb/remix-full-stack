@@ -18,7 +18,8 @@
       "ES2022"
     ],
     "types": [
-      "@remix-run/node",
+      "@vercel/remix",
+      "node",
       "vite/client"
     ],
     "isolatedModules": true,
