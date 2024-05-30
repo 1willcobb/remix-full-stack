@@ -1,6 +1,6 @@
 import User from "../models/User.server";
 import Thought from "../models/Thought.server";
-import { json } from "@remix-run/node";
+import { json } from "@vercel/remix";
 
 export const getAllThoughts = async () => {
     try {

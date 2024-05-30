@@ -19,7 +19,7 @@
     "form-data": "^4.0.0",
     "isbot": "^4.1.0",
     "mailgun.js": "^10.2.1",
-    "mongodb": "^6.6.1",
+    "mongodb": "^6.7.0",
     "mongoose": "^8.3.4",
     "morgan": "^1.10.0",
     "react": "^18.2.0",

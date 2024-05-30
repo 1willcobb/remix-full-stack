@@ -8,10 +8,15 @@ import {
 import { Suspense } from "react";
 import { sendEmail } from "~/utils/mailgun";
 import TextEditor from "~/components/TextEditor.client";
-import { getAllUsers } from "~/utils/controllers/UserController.server";
+import { getUserByUsername } from "~/utils/controllers/UserController.server";
 
-export const loader = async () => {
-  return await getAllUsers();
+export const loader = async ({ params }) => {
+  const { user } = params;
+
+  const userData = await getUserByUsername(user);
+
+  console.log("userDarta: ", userData);
+  return userData;
 };
 
 export const action = async ({ request }) => {
@@ -22,11 +27,7 @@ export const action = async ({ request }) => {
     const subject = formData.get("subject");
     console.log("sending email");
 
-    await sendEmail({
-      to,
-      subject,
-      html,
-    });
+    await sendEmail({ to, subject, html });
 
     console.log("email sent");
 
@@ -39,14 +40,14 @@ export const action = async ({ request }) => {
 };
 
 export default function EmailRoute() {
-  const users = useLoaderData();
+  const user = useLoaderData();
   const data = useActionData();
 
   return (
     <div className="flex items-center w-full justify-center flex-col">
-      <h1>Send an Email</h1>
+      <h2>Send an email to {user.username}</h2>
       <Suspense fallback={<div>Loading editor...</div>}>
-        <TextEditor users={users} />
+        <TextEditor users={[user]} />
       </Suspense>
       {data && (
         <div

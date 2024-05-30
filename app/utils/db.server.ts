@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const MONGO_URI = "mongodb://localhost:27017/socialdb"
+const MONGO_URI = process.env.DATABASE_URL || "mongodb://localhost:27017/socialdb";
 
 const options = {
   useNewUrlParser: true,
@@ -17,3 +17,6 @@ const connectDB = async () => {
 };
 
 export default connectDB;
+
+// password : HQucDBFaI1G1zObO
+// username: cobbwill

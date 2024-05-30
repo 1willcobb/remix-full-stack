@@ -1,6 +1,6 @@
 import { NavLink, Outlet, Form, useSearchParams, useFetcher, useLoaderData, useRouteError, isRouteErrorResponse } from "@remix-run/react";
 import Project from "./projects";
-import { createCookie } from "@remix-run/node";
+import { createCookie } from "@vercel/remix";
 export const prefs = createCookie("prefs");
 import { json } from "@remix-run/node";
 

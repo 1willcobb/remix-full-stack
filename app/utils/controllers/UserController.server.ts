@@ -1,6 +1,6 @@
 import User from "../models/User.server";
 import Thought from "../models/Thought.server";
-import { json } from "@remix-run/node";
+import { json } from "@vercel/remix";
 
 export const getAllUsers = async () => {
   try {
@@ -18,6 +18,14 @@ export const getUserById = async (id) => {
   }
 }
 
+export const getUserByUsername = async (username: string) => {
+  try {
+    return await User.findOne({username}).populate("friends").populate("thoughts");
+  } catch (err) {
+    throw new Error("Failed to fetch user");
+  }
+}
+
 export const createUser = async (username: string, email: string) => {
   try {
     //Check if the user exists
@@ -29,6 +37,7 @@ export const createUser = async (username: string, email: string) => {
       console.log("User already exists");
       return;
     }
+
     return await User.create({ username, email });
   } catch (err) {
     throw new Error("Failed to create user");
