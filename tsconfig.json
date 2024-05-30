@@ -9,7 +9,7 @@
     "app/routes/1app.tsx",
     "app/routes/email.tsx",
     "app/components/TextEditor.client.tsx",
-    "app/utils/mailgun.ts"
+    "app/utils/mailgun.server.ts"
   ],
   "compilerOptions": {
     "lib": [

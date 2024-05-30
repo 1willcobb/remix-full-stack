@@ -2,13 +2,15 @@ import {
   isRouteErrorResponse,
   useRouteError,
   useLoaderData,
-  useFetcher,
   useActionData,
 } from "@remix-run/react";
 import { Suspense } from "react";
-import { sendEmail } from "~/utils/mailgun";
+import { sendEmail } from "~/utils/mailgun.server";
 import TextEditor from "~/components/TextEditor.client";
 import { getAllUsers } from "~/utils/controllers/UserController.server";
+
+
+
 
 export const loader = async () => {
   return await getAllUsers();

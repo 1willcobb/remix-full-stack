@@ -1,23 +1,16 @@
 import {
   isRouteErrorResponse,
-  useFetcher,
   useRouteError,
   Form,
-  Outlet,
   useLoaderData,
-  Link
+  Link,
 } from "@remix-run/react";
-import { redirect } from "@vercel/remix";
-import { all } from "axios";
+
 
 import {
   createUser,
   getAllUsers,
 } from "~/utils/controllers/UserController.server";
-
-import User from "~utils//models/User.server";
-
-//"../utils/controllers/UserController.server";
 
 export const meta = () => {
   return [
@@ -48,7 +41,6 @@ export const action = async ({ request }) => {
 
 export default function Index() {
   const data = useLoaderData();
-  const fetcher = useFetcher();
 
   return (
     <div className="bg-white lg:py-12 p-5">
@@ -57,7 +49,7 @@ export default function Index() {
           INDEX ROUTE
         </h2>
       </div>
-      <fetcher.Form
+      <Form
         method="post"
         className="flex flex-col items-center gap-2"
         reloadDocument
@@ -79,24 +71,18 @@ export default function Index() {
           className="bg-slate-200 rounded-lg p-2 "
         />
         <button type="submit">Create User</button>
-      </fetcher.Form>
+      </Form>
       {data && (
         <div>
           <h2>USERS</h2>
           <ul>
             {data.map((user) => (
               <li key={user._id}>
-                <Link to={`/${user.username}`}>
-                  {user.username}
-                </Link>
-                </li>
+                <Link to={`/${user.username}`}>{user.username}</Link>
+              </li>
             ))}
           </ul>
         </div>
-      )}
-
-      {fetcher.data && (
-        <h3 className="font-extrabold">{fetcher.data.username}</h3>
       )}
     </div>
   );

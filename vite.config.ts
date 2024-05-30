@@ -10,7 +10,8 @@ installGlobals();
 export default defineConfig({
   plugins: [remix({
     presets: [vercelPreset()],
-  }), tsconfigPaths()],
+  }, 
+), tsconfigPaths()],
   build: {
     rollupOptions: {
       input: './app/root.tsx', // Update this to match your project structure

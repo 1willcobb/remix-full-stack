@@ -1,9 +1,8 @@
-import type { LoaderFunctionArgs, useSearchParams } from "@vercel/remix";
 import { Outlet, useLoaderData, useParams, Link } from "@remix-run/react";
 import { useState } from "react";
 import { getUserByUsername } from "../utils/controllers/UserController.server";
 
-export const loader = async ({ request, params }: LoaderFunctionArgs) => {
+export const loader = async ({ request, params }) => {
   const { user } = params;
 
   const userData = await getUserByUsername(user);

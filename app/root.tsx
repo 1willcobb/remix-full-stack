@@ -35,7 +35,6 @@ export const links: LinksFunction = () => {
   ];
 };
 
-import { getUsers } from "./utils/controllers/UserController.server";
 
 export const loader = async () => {
   const data = "Hello World";

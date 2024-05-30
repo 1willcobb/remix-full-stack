@@ -21,8 +21,6 @@ const toolBarOptions = {
 export default function TextEditor(users) {
   const [content, setContent] = useState("");
 
-  console.log("users: ", users);
-
   const handleChange = (content, delta, source, editor) => {
     setContent(editor.getHTML());
   };

@@ -6,7 +6,8 @@
   "scripts": {
     "build": "remix vite:build",
     "dev": "remix vite:dev",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "start": "remix-serve ./build/server/index.js"
   },
   "dependencies": {
     "@react-email/components": "^0.0.17",
