@@ -18,7 +18,7 @@ const toolBarOptions = {
   ],
 };
 
-export default function TextEditor(users) {
+export default function TextEditor({users}) {
   const [content, setContent] = useState("");
 
   const handleChange = (content, delta, source, editor) => {
@@ -28,11 +28,11 @@ export default function TextEditor(users) {
   return (
     <div>
       <Form method="post" className="flex flex-col gap-2">
-        {users.users.length > 1 ? (
+        {users.length > 1 ? (
           <div className="flex flex-col">
             <label htmlFor="email">Select User to Email</label>
             <select name="email" className="p-2 rounded-lg">
-              {users.users.map((user) => (
+              {users.map((user) => (
                 <option key={user._id} value={user.email}>
                   {user.username}
                 </option>
@@ -40,7 +40,7 @@ export default function TextEditor(users) {
             </select>
           </div>
         ) : (
-          <input type="hidden" name="email" value={users.users[0].email} />
+          <input type="hidden" name="email" value={users[0].email} />
         )}
         <label htmlFor="subject">Subject</label>
         <input type="text" name="subject" className="bg-white p-2 rounded-lg" />

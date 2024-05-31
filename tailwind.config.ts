@@ -15,6 +15,7 @@ export default {
     },
   },
   plugins: [
+    require('daisyui'),
     plugin(function({ addBase }) {
     addBase({
        'html': { fontSize: "14px" },
@@ -23,5 +24,8 @@ export default {
        'h3': { fontSize: '1.5rem', fontWeight: 'bold' },
      })
    }),],
+   daisyui: {
+    themes: ["light", "dark", "cupcake", "forest", "retro", "sunset"],
+  },
 } as Config;
 

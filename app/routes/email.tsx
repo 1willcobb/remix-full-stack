@@ -4,12 +4,10 @@ import {
   useLoaderData,
   useActionData,
 } from "@remix-run/react";
-import { Suspense } from "react";
+import { Suspense, lazy } from "react";
 import { sendEmail } from "~/utils/mailgun.server";
 import TextEditor from "~/components/TextEditor.client";
 import { getAllUsers } from "~/utils/controllers/UserController.server";
-
-
 
 
 export const loader = async () => {
@@ -45,7 +43,7 @@ export default function EmailRoute() {
   const data = useActionData();
 
   return (
-    <div className="flex items-center w-full justify-center flex-col">
+    <div className="flex items-center w-full justify-center flex-col border-2 border-primary rounded-2xl">
       <h1>Send an Email</h1>
       <Suspense fallback={<div>Loading editor...</div>}>
         <TextEditor users={users} />

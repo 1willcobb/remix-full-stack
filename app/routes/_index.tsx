@@ -6,7 +6,6 @@ import {
   Link,
 } from "@remix-run/react";
 
-
 import {
   createUser,
   getAllUsers,
@@ -43,34 +42,51 @@ export default function Index() {
   const data = useLoaderData();
 
   return (
-    <div className="bg-white lg:py-12 p-5">
+    <div className="lg:py-12 p-5 border-2 border-primary rounded-2xl">
       <div className="mx-auto max-w-screen-2xl">
-        <h2 className="mb-4 text-center text-2xl text-gray-800 p-6 font-thin md:font-extrabold">
+        <h2 className="mb-4 text-center text-2xl text-secondary p-6 font-thin md:font-extrabold">
           INDEX ROUTE
         </h2>
       </div>
       <Form
         method="post"
-        className="flex flex-col items-center gap-2"
+        className="flex flex-col items-center gap-2 glass"
         reloadDocument
       >
-        <label htmlFor="name">Name</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          placeholder="Name"
-          className="bg-slate-200 rounded-lg p-2 "
-        />
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Email"
-          className="bg-slate-200 rounded-lg p-2 "
-        />
-        <button type="submit">Create User</button>
+        <label
+          htmlFor="name"
+          className="input input-bordered flex items-center gap-2"
+        >
+          Name
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Jack Doe"
+            className="grow"
+          />
+        </label>
+
+        <label
+          htmlFor="email"
+          className="input input-bordered flex items-center gap-2"
+        >
+          Email
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="jack123@gmail.com"
+            className="grow"
+          />
+        </label>
+
+        <button
+          type="submit"
+          className="btn bg-accent text-neutral hover:bg-neutral hover:"
+        >
+          Create User
+        </button>
       </Form>
       {data && (
         <div>
@@ -78,7 +94,11 @@ export default function Index() {
           <ul>
             {data.map((user) => (
               <li key={user._id}>
-                <Link to={`/${user.username}`}>{user.username}</Link>
+                <div className="tooltip tooltip-accent" data-tip={`link to ${user.username}`}>
+                  <Link to={`/${user.username}?info`} className="btn">
+                    {user.username}
+                  </Link>
+                </div>
               </li>
             ))}
           </ul>
@@ -91,7 +111,30 @@ export default function Index() {
 export function ErrorBoundary() {
   const error = useRouteError();
   if (isRouteErrorResponse(error)) {
-    return <div />;
+    return (
+      <Link to="/" role="alert" className="alert alert-error">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="stroke-current shrink-0 h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+        <span>Error! Something went wrong. Click to return</span>
+      </Link>
+    );
   }
-  return <div />;
+  return (
+    <Link to="/" className="toast toast-top toast-end">
+      <div className="alert alert-info">
+        <span>Error! Something went wrong. Click to return</span>
+      </div>
+    </Link>
+  );
 }

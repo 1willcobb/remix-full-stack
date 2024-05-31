@@ -2,14 +2,11 @@ import mongoose from 'mongoose';
 
 const MONGO_URI = process.env.DATABASE_URL || "mongodb://localhost:27017/socialdb";
 
-const options = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-};
+// || "mongodb://localhost:27017/socialdb";
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(MONGO_URI, options);
+    await mongoose.connect(MONGO_URI);
     console.log('Connected to MongoDB successfully');
   } catch (err) {
     console.error('Failed to connect to MongoDB:', err);
@@ -17,6 +14,3 @@ const connectDB = async () => {
 };
 
 export default connectDB;
-
-// password : HQucDBFaI1G1zObO
-// username: cobbwill

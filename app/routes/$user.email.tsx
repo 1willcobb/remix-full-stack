@@ -4,11 +4,12 @@ import {
   useLoaderData,
   useActionData,
 } from "@remix-run/react";
-import { Suspense } from "react";
+import { Suspense, lazy } from "react";
 import { sendEmail } from "~/utils/mailgun.server";
 import TextEditor from "~/components/TextEditor.client";
 import { getUserByUsername } from "~/utils/controllers/UserController.server";
 
+import { serverOnly$} from "vite-env-only"
 
 export const loader = async ({ params }) => {
   const { user } = params;
@@ -44,7 +45,7 @@ export default function EmailRoute() {
   const data = useActionData();
 
   return (
-    <div className="flex items-center w-full justify-center flex-col">
+    <div className="flex items-center w-full justify-center flex-col border-2 border-primary rounded-2xl resize">
       <h2>Send an email to {user.username}</h2>
       <Suspense fallback={<div>Loading editor...</div>}>
         <TextEditor users={[user]} />

@@ -18,20 +18,23 @@ export default function UserPage() {
   const [toggleLink, setToggleLink] = useState(false);
 
   return (
-    <div>
-      <h1>User Page</h1>
-      <h2>Welcome {user}</h2>
-      {data.username && <p>{data.email}</p>}
-      {toggleLink ? (
-        <button onClick={() => setToggleLink(!toggleLink)}>
-          <Link to={`/${user}`}>Back to {user} page</Link>
-        </button>
-      ) : (
-        <button onClick={() => setToggleLink(!toggleLink)}>
-          <Link to={`/${user}/email`}>Email User</Link>
-        </button>
-      )}
+    <section className=" flex border-2 border-primary rounded-2xl">
+      <div>
+        <h1>User Page</h1>
+        <h2>Welcome {user}</h2>
+        {data.username && <p>{data.email}</p>}
+        {toggleLink ? (
+          <button onClick={() => setToggleLink(!toggleLink)} className="btn btn-outline btn-secondary">
+            <Link to={`/${user}`}>Back to {user} page</Link>
+          </button>
+        ) : (
+          <button onClick={() => setToggleLink(!toggleLink)} className="btn btn-outline btn-secondary">
+            <Link to={`/${user}/email`}>Email User</Link>
+          </button>
+        )}
+      </div>
+
       <Outlet />
-    </div>
+    </section>
   );
 }

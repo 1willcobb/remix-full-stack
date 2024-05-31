@@ -1,15 +1,19 @@
 {
   "include": [
+    "remix.env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     "**/.server/**/*.ts",
     "**/.server/**/*.tsx",
     "**/.client/**/*.ts",
     "**/.client/**/*.tsx",
-    "app/routes/1app.tsx",
+    "../1app.tsx",
     "app/routes/email.tsx",
     "app/components/TextEditor.client.tsx",
-    "app/utils/mailgun.server.ts"
+    "app/routes/$user.email.tsx",
+    "app/routes/$user.tsx",
+    "app/routes/app.tsx",
+    "../projects.tsx",
   ],
   "compilerOptions": {
     "lib": [
